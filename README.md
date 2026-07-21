@@ -22,15 +22,19 @@ Subir os containers de serviços
 cd bd-avancado
 ```
 
+**EXECUTE APENAS UM DOS COMANDOS ABAIXO**
+
+**Opção 1 (verbose):**
+> Execute este comando na primeira execução, este formato permite que você analise se tudo está OK.
+
 ```sh
-# EXECUTE APENAS UM DOS COMANDOS ABAIXO
-
-# Opção 1 (verbose): Execute este comando na primeira execução,
-# Este formato permite que você analise se tudo está OK.
 docker compose up --build
+```
 
-# Opção 2 (background): Para garantir que tudo está OK,
-# utilize este formato somente depois da primeira vez que rodar os containers.
+**Opção 2 (background):**
+> Para garantir que tudo está OK, utilize este formato somente depois da primeira vez que rodar os containers.
+
+```sh
 docker compose up --build -d
 ```
 
@@ -40,9 +44,8 @@ Verificar se tudo está online (OK)
 
 ```sh
 docker ps | grep advanced_bd
-
-# Uma lista de containers em execução deve ser exibida após o comando.
 ```
+> Uma lista de containers em execução deve ser exibida após o comando.
 
 ## API (Laravel)
 
@@ -62,9 +65,9 @@ composer install
 ```
 
 3. Configurar o arquivo de variáveis de ambiente (.env)
+> As configurações básicas já estão definidas
 
 ```sh
-# As configurações básicas já estão definidas
 cp .env.example .env
 ```
 
