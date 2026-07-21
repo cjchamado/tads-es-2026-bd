@@ -8,15 +8,79 @@ Projeto exclusivo para uso didático na disciplina de **Banco de Dados Avançado
 
 ## Download
 
+Download do projeto completo
+
 ```sh
 git clone git@github.com:cjchamado/tads-es-2026-bd.git bd-avancado
 ```
 
 ## Up
+
+Subir os containers de serviços
+
 ```sh
 cd bd-avancado
 ```
 
 ```sh
+# EXECUTE APENAS UM DOS COMANDOS ABAIXO
+
+# Opção 1 (verbose): Execute este comando na primeira execução,
+# Este formato permite que você analise se tudo está OK.
 docker compose up --build
+
+# Opção 2 (background): Para garantir que tudo está OK,
+# utilize este formato somente depois da primeira vez que rodar os containers.
+docker compose up --build -d
 ```
+
+## Check
+
+Verificar se tudo está online (OK)
+
+```sh
+docker ps | grep advanced_bd
+
+# Uma lista de containers em execução deve ser exibida após o comando.
+```
+
+## API (Laravel)
+
+**Utilizaremos o framework laravel para de testes de carga, seeding e outros facilitadores que possibilitem o melhor aproveitamento na disciplina.**
+
+1. Acessar o container do php para execução dos comandos do laravel (artisan).
+
+```sh
+docker exec -it advanced_bd_php bash
+```
+
+2. Instalar as dependências
+> Apenas a primeira vez ou quando novas dependências forem adicionadas
+
+```sh
+composer install
+```
+
+3. Configurar o arquivo de variáveis de ambiente (.env)
+
+```sh
+# As configurações básicas já estão definidas
+cp .env.example .env
+```
+
+4. Gerar chave secreta da aplicação
+
+```sh
+php artisan key:generate
+```
+
+5. Inicializar migrations
+
+```sh
+php artisan migrate
+```
+
+# Acesso aos recursos web:
+
+- [**phpMyAdmin** - http://localhost:8584](http://localhost:8584)
+- [**API** - http://localhost:8582](http://localhost:8582)
