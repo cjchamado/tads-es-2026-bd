@@ -83,6 +83,12 @@ php artisan key:generate
 php artisan migrate
 ```
 
+6. Rodar seeders
+
+```sh
+php artisan db:seed
+```
+
 # Acesso aos recursos web:
 
 - [**phpMyAdmin** - http://localhost:8584](http://localhost:8584)
