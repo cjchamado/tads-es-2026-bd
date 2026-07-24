@@ -18,6 +18,11 @@ class OrderFactory extends Factory
      */
     public function definition(): array
     {
+        $status = fake()->randomElement(['open', 'paid']);
+        $paidAt = $status === 'paid' ? fake()->dateTimeBetween(
+            startDate: '-1 month',
+        ) : null ;
+
         return [
             'customer_id' => Customer::factory()->create()->id,
             'total' => fake()->randomFloat(
@@ -26,7 +31,7 @@ class OrderFactory extends Factory
                 max: 500,
             ),
             'status' => 'open',
-            'paid_at' => null,
+            'paid_at' => $paidAt,
         ];
     }
 }
