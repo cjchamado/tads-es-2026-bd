@@ -30,7 +30,7 @@ class OrderFactory extends Factory
                 min: 10,
                 max: 500,
             ),
-            'status' => 'open',
+            'status' => $status,
             'paid_at' => $paidAt,
         ];
     }
