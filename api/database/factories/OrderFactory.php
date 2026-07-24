@@ -20,7 +20,11 @@ class OrderFactory extends Factory
     {
         return [
             'customer_id' => Customer::factory()->create()->id,
-            'total' => 0,
+            'total' => fake()->randomFloat(
+                nbMaxDecimals: 2,
+                min: 10,
+                max: 500,
+            ),
             'status' => 'open',
             'paid_at' => null,
         ];
