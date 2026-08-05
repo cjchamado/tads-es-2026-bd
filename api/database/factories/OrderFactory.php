@@ -20,7 +20,7 @@ class OrderFactory extends Factory
     {
         $status = fake()->randomElement(['open', 'paid']);
         $paidAt = $status === 'paid' ? fake()->dateTimeBetween(
-            startDate: '-1 month',
+            startDate: '-1 day',
         ) : null ;
 
         return [
