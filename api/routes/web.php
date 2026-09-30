@@ -1,25 +1,13 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
-use App\Models\Order;
 
-Route::get('/db', function () {
-    Order::factory(10_000)->create();
-
-    // $start = '2021-01-31';
-    // $end = now()->format('Y-m-d');
-
-    // $query = Order::query()
-    //     ->where('status', 'paid')
-    //     ->whereBetween('created_at', [
-    //         $start,
-    //         $end
-    //     ]);
-
-    // // dd($query->getBindings());
-    // die($query->toRawSql());
+Route::get('/mongodb', function () {
+    // $products = Product::factory(10)->create();
+    // return Product::orderByDesc('created_at')->paginate();
+    // return Product::find('6abc622636586f1cdc061fe9');
 });
-
 
 Route::get('/', function () {
     return view('welcome');

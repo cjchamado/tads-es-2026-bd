@@ -23,6 +23,16 @@ class ProductFactory extends Factory
             'image' => fake()->imageUrl(),
             'stock' => fake()->randomNumber(2),
             'price' => fake()->randomDigitNotZero() * fake()->randomNumber(2),
+            'attributes' => [
+                'colors' => [
+                    fake()->colorName(),
+                    fake()->colorName(),
+                    fake()->colorName(),
+                    fake()->colorName(),
+                    fake()->colorName(),
+                ],
+                'sizes' => ['P', 'M', 'G'],
+            ]
         ];
     }
 }
